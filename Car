@@ -1,0 +1,56 @@
+ internal class Program
+ {
+     static void Main()
+     {
+
+
+         int numberCar = int.Parse(Console.ReadLine());
+         List<Car> cars = new List<Car>();
+         string[] currentType = new string[3];
+
+         for(int i = 0; i < numberCar; i++) 
+         {
+             currentType = Console.ReadLine().Split(" ").ToArray();
+             cars.Add(new Car(currentType[0], double.Parse(currentType[1]), double.Parse(currentType[2])));
+         }
+
+         while (true) 
+         { 
+             string command = Console.ReadLine();
+             if (command == "End")
+                 break;
+
+             currentType = command.Split(" ").ToArray() ;
+
+             bool canDrive = true;
+             for (int i = 0; i < numberCar; i++) // current car
+             {
+                 if (cars[i].Model == currentType[1])
+                 {
+                     cars[i].Distance += double.Parse(currentType[2]);
+
+                 }
+                 if (cars[i].Distance * cars[i].FuelPerKilo > cars[i].FuelAmount) // не се движи
+                 { 
+                     Console.WriteLine("Insufficient fuel for the drive");
+                     canDrive = false;
+                     break; 
+                 }
+
+                 //ТУК 
+                 // Стойностите на Distance, Fuel.... 
+                 if (!canDrive)
+                 {
+                     
+                 }
+             }
+
+             
+
+         }
+         for (int i = 0;i < numberCar;i++)
+         {
+             Console.WriteLine($"{cars[i].Model} {cars[i].FuelAmount - cars[i].Distance * cars[i].FuelPerKilo:F2} {cars[i].Distance}");    
+         }
+     }
+ }
