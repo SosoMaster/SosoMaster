@@ -54,3 +54,24 @@
          }
      }
  }
+class Car
+    {
+        public string Model;
+        public double FuelAmount;
+        public double FuelPerKilo;
+        public double Distance;
+
+        public Car(string model, double fuelAmount, double fuelPerKilo) 
+        { 
+            this.Model = model;
+            this.FuelAmount = fuelAmount;
+            this.FuelPerKilo = fuelPerKilo;
+
+        }
+
+        public double Sum()
+        {
+            return this.FuelPerKilo * this.Distance;
+        }
+
+    }
