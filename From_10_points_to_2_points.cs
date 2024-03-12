@@ -27,7 +27,7 @@
             {
                 Console.Write(binaryDigits[i]);
             }
-            Console.WriteLine(); ;
+            Console.WriteLine(); 
         }
     }
 }
